@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// API Routes for media library uploads and retrieval
+Route::post('/media', 'API\MediaController@store')->name('api.media.store');
+Route::get('/media/{mediaItem}/{size?}', 'API\MediaController@show')->name('api.media.show');

@@ -7,6 +7,32 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## Media Library / Dropzone Example Notes
+
+- This project aims to be as close to a default Laravel installation as possible, with only a Post model with CRUD functionality, and file attachment functionality added
+- database/migrations/2020_02_05_191445_create_media_table.php and config/medialibrary.php were generated following installation instructions at https://github.com/spatie/laravel-medialibrary and was not modified from the default
+- config/laravel-directory-cleanup.php was generated following installation instructions at https://github.com/spatie/laravel-directory-cleanup and modified as needed, adding the 'Delete unused uploads from Media Library' section
+- Scheduled tasks are defined in app/Console/Kernel.php . They cannot be run via supervisor and must use a cron job as below
+     - `\* \* \* \* \* cd /path/to/laravel/app && php artisan schedule:run >> /dev/null 2>&1`
+- The database will need to be set up and migrated before use
+- Files added/modified from default Laravel installation:
+    - .gitignore
+    - composer.json
+    - composer.lock 
+    - README.md
+    - /routes/api.php
+    - /routes/web.php
+    - /views/welcome.blade.php
+    - /views/posts/*
+    - /database/migrations/*create_posts_table.php
+    - /database/migrations/*create_media_table.php
+    - /config/laravel-directory-cleanup.php
+    - /config/medialibrary.php
+    - /app/Post.php
+    - /app/Console/Kernal.php
+    - /app/Http/Controllers/API/MediaController.php
+    - /app/Http/PostController.php
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

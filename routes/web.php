@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Resource route for posts includes routes for create, read, update, delete
+Route::resource('posts', 'PostController');

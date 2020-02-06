@@ -26,6 +26,10 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+
+        //Scheduled task for Laravel Directory Cleanup
+        //See config/laravel-directory-cleanup.php
+        $schedule->command('clean:directories')->daily();
     }
 
     /**
